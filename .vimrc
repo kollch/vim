@@ -32,6 +32,13 @@ nnoremap <leader>gt :tabnew
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 nnoremap - <nop>
+nnoremap <silent> <leader>w :match Error /\v\s+$/<cr>
+nnoremap <silent> <leader>W :match none<cr>
+nnoremap / /\v
+nnoremap ? ?\v
+nnoremap <leader>hl :nohlsearch<cr>
+nnoremap <leader>g :silent execute "grep! -r " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
+nnoremap <leader>m :silent make!<cr>:copen<cr>
 " Insert mode mappings ----------------------------------------- {{{2
 inoremap <c-u> <esc>lviwUea
 inoremap jk <esc>
@@ -82,7 +89,9 @@ augroup END
 onoremap p i(
 " Action on text within current indent ------------------------- {{{1
 "onoremap b :execute "normal! V" | let curr_indent=indent(line(".")) | while indent(line(".")+1) >= curr_indent | execute "normal! j" | endwhile
-function SelectIndent()
+" Read omap-info for information on <c-u>
+onoremap b :<c-u>normal! V/{<cr>%<cr>
+function! SelectIndent()
 	execute "normal! V"
 	let curr_indent=indent(line("."))
 	while indent(line(".")+1) > curr_indent

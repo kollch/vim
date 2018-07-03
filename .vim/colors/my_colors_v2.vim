@@ -176,7 +176,7 @@ if &background == "light"
     let s:term_brown  =   s:term_temp02
     let s:term_white  =   s:term_temp03
     if (s:term_back != "NONE")
-        let s:term_back = s:term_grey
+        let s:term_back = s:term_black
     endif
 endif
 "}}}
@@ -192,7 +192,11 @@ else
 endif
 
 let s:u  = ",underline"
-let s:i  = ",italic"
+if (&t_Co > 256)
+    let s:i  = ",italic"
+else
+    let s:i  = ""
+endif
 "}}}
 
 " Highlighting primitives"{{{
@@ -405,7 +409,7 @@ execute "highlight! Title"          .s:fmt_bold  .s:fg_lred   .s:bg_none
 execute "highlight! VisualNOS"      .s:fmt_stnd  .s:fg_none   .s:bg_black .s:fmt_revbb
 execute "highlight! WarningMsg"     .s:fmt_bold  .s:fg_lred   .s:bg_none
 execute "highlight! WildMenu"       .s:fmt_none  .s:fg_brown  .s:bg_black .s:fmt_revbb
-execute "highlight! Folded"         .s:fmt_bold  .s:fg_black  .s:bg_grey  .s:sp_grey
+execute "highlight! Folded"         .s:fmt_none  .s:fg_black  .s:bg_grey  .s:sp_grey
 execute "highlight! FoldColumn"     .s:fmt_none  .s:fg_black  .s:bg_grey
 
 execute "highlight! DiffAdd"        .s:fmt_bold  .s:fg_green  .s:bg_black .s:sp_green

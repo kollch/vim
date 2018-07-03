@@ -7,7 +7,7 @@ endif
 set t_ut=
 let colors_name = "my_colors"
 
-highlight normal guifg=#e5e5e5 guibg=#000000 guisp=#000000 gui=NONE
+highlight Normal guifg=#e5e5e5 guibg=#000000 guisp=#000000 gui=NONE
 
 set background=dark
 
@@ -27,6 +27,7 @@ set background=dark
 highlight Todo guifg=#ff0000 guibg=#330000 guisp=#330000 gui=NONE
 "highlight StatusLine -- no settings --
 highlight Search guifg=#000000 guibg=#e6de4a guisp=NONE gui=NONE
+highlight QuickFixLine guifg=#000000 guibg=#330000 guisp=NONE gui=NONE
 "highlight SpellRare -- no settings --
 "highlight EnumerationValue -- no settings --
 "highlight Boolean -- no settings --
@@ -81,8 +82,7 @@ highlight Operator guifg=#cdaa7d guibg=NONE guisp=NONE gui=NONE
 highlight Define guifg=#3124e0 guibg=NONE guisp=NONE gui=NONE
 highlight PreProc guifg=#5a4fe6 guibg=NONE guisp=NONE gui=NONE
 highlight Exception guifg=#ff00ff guibg=NONE guisp=NONE gui=NONE
-highlight Keyword guifg=#ff00ff guibg=NONE guisp=NONE gui=NONE
-highlight keyword guifg=#FFDE00 guibg=NONE guisp=NONE gui=NONE
+highlight Keyword guifg=#ffde00 guibg=NONE guisp=NONE gui=NONE
 highlight Type guifg=#19da40 guibg=NONE guisp=NONE gui=NONE
 highlight Constant guifg=#ff00ff guibg=NONE guisp=NONE gui=NONE
 highlight Tag guifg=#ff00ff guibg=NONE guisp=NONE gui=NONE
@@ -103,7 +103,6 @@ highlight WarningMsg guifg=#ffffff guibg=NONE guisp=NONE gui=NONE
 highlight ifdefifout guifg=#a9a9a9 guibg=NONE guisp=NONE gui=NONE
 highlight menu guifg=#000000 guibg=#ff0000 guisp=NONE gui=NONE
 highlight scrollbar guifg=#00C0FF guibg=NONE guisp=NONE gui=NONE
-highlight condtional guifg=#700000 guibg=NONE guisp=NONE gui=NONE
 highlight match guifg=#000000 guibg=#ff0000 guisp=NONE gui=NONE
 highlight namespace guifg=#006400 guibg=NONE guisp=NONE gui=NONE
 highlight tablinefillsel guifg=#0000ff guibg=NONE guisp=NONE gui=NONE
@@ -178,9 +177,7 @@ highlight myspecialsymbols guifg=#ff00ff guibg=NONE guisp=NONE gui=NONE
 highlight SpecialChar guifg=#ffa500 guibg=NONE guisp=NONE gui=NONE
 highlight Character guifg=#e6de4a guibg=NONE guisp=NONE gui=NONE
 highlight char guifg=#e6de4a guibg=NONE guisp=NONE gui=NONE
-highlight charachter guifg=#644A9B guibg=NONE guisp=NONE gui=NONE
 highlight Debug guifg=#ff00ff guibg=NONE guisp=NONE gui=NONE
-highlight debug guifg=#ffffff guibg=NONE guisp=NONE gui=NONE
 highlight debugstop guifg=#ffffff guibg=NONE guisp=NONE gui=NONE
 highlight debugbreak guifg=#ffffff guibg=NONE guisp=NONE gui=NONE
 highlight cterm guifg=#efface guibg=NONE guisp=NONE gui=NONE

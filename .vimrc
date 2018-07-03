@@ -39,6 +39,8 @@ nnoremap ? ?\v
 nnoremap <leader>hl :nohlsearch<cr>
 nnoremap <leader>g :silent execute "grep! -r " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
 nnoremap <leader>m :silent make!<cr>:copen<cr>
+nnoremap <leader>color :tabnew ~/.vim/colors/my_colors_v2.vim<cr>
+nnoremap <leader>cc :source $VIMRUNTIME/colors/tools/check_colors.vim<cr>
 " Insert mode mappings ----------------------------------------- {{{2
 inoremap <c-u> <esc>lviwUea
 inoremap jk <esc>
@@ -247,13 +249,13 @@ set number
 
 
 "____________________________________________________________
-"set background=dark
+set background=dark
 " The "" is a single character. You enter it by pressing Ctrl+v and then ESC.
 "set t_8f=[38;2;%lu;%lu;%lum
 "set t_8b=[48;2;%lu;%lu;%lum
 
 "set t_Co=256
-let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : 'italic', 'sp' : '' }
+"let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : 'italic', 'sp' : '' }
 
 " Change the color scheme here.
 "colorscheme gruvbox
@@ -261,10 +263,11 @@ let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : 'italic', 'sp' : '' }
 "colorscheme flattened_dark
 "colorscheme satori_modified
 "colorscheme partial_scheme
-colorscheme my_colors
+"colorscheme my_colors
+colorscheme my_colors_v2
 "colorscheme acme
 " This is what sets vim to use 24-bit colors.
-"set termguicolors
+set termguicolors
 
 " Sets wrapping to be a soft wrap (doesn't make a new line)
 "set wrap linebreak nolist

@@ -538,9 +538,9 @@ highlight! link gitcommitUnmergedArrow  gitcommitUnmergedFile
 execute "highlight! htmlTag"            .s:fmt_none .s:fg_lgreen .s:bg_none
 execute "highlight! htmlEndTag"         .s:fmt_none .s:fg_lgreen .s:bg_none
 execute "highlight! htmlTagN"           .s:fmt_bold .s:fg_violet .s:bg_none
-execute "highlight! htmlTagName"        .s:fmt_bold .s:fg_blue   .s:bg_none
+execute "highlight! htmlTagName"        .s:fmt_none .s:fg_blue   .s:bg_none
 execute "highlight! htmlSpecialTagName" .s:fmt_ital .s:fg_blue   .s:bg_none
-execute "highlight! htmlArg"            .s:fmt_none .s:fg_yellow .s:bg_none
+execute "highlight! htmlArg"            .s:fmt_none .s:fg_green  .s:bg_none
 execute "highlight! javaScript"         .s:fmt_none .s:fg_orange .s:bg_none
 "}}}
 

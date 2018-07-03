@@ -318,8 +318,10 @@ execute "highlight! String"         .s:fmt_none   .s:fg_yellow  .s:bg_none
 highlight! link Character String
 "                   Character       a character constant: 'c', '\n'
 
-execute "highlight! Identifier"     .s:fmt_none   .s:fg_pink    .s:bg_none
+execute "highlight! Identifier"     .s:fmt_none   .s:fg_white   .s:bg_none
 "                  *Identifier      any variable name
+
+execute "highlight! Function"       .s:fmt_none   .s:fg_pink    .s:bg_none
 "                   Function        function name (also: methods for classes)
 
 execute "highlight! Conditional"    .s:fmt_none   .s:fg_blue    .s:bg_navy

@@ -42,8 +42,8 @@ set confirm
 set background=dark
 colorscheme my_colors_v2
 try
-    " This is what sets vim to use 24-bit colors.
-    set termguicolors
+	" This is what sets vim to use 24-bit colors.
+	set termguicolors
 catch
 endtry
 " Map leaders -------------------------------------------------- {{{1
@@ -148,6 +148,16 @@ set ttimeoutlen=10
 "set statusline+=\ \ %l " Current line
 "set statusline+=/      " Separator
 "set statusline+=%L     " Total lines
+
+" Hide the mode indicator in the command area if it's already displayed on the
+" status line
+if &laststatus == 2
+	set noshowmode
+endif
+
+" Airline-specific customizations ------------------------------ {{{2
+let g:airline_powerline_fonts = 1
+let g:airline_skip_empty_sections = 1
 " Default example settings ------------------------------------- {{{1
 " Set folding to be based on indents
 "set foldmethod=indent

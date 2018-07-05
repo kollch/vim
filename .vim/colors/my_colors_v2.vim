@@ -401,7 +401,7 @@ execute "highlight! ErrorMsg"       .s:fmt_revr  .s:fg_red    .s:bg_lred
 execute "highlight! IncSearch"      .s:fmt_stnd  .s:fg_white  .s:bg_black
 execute "highlight! Search"         .s:fmt_revr  .s:fg_yellow .s:bg_black
 execute "highlight! MoreMsg"        .s:fmt_none  .s:fg_blue   .s:bg_none
-execute "highlight! ModeMsg"        .s:fmt_none  .s:fg_back   .s:bg_none
+execute "highlight! ModeMsg"        .s:fmt_none  .s:fg_white  .s:bg_none
 execute "highlight! LineNr"         .s:fmt_none  .s:fg_orange .s:bg_black
 execute "highlight! Question"       .s:fmt_bold  .s:fg_cyan   .s:bg_none
 execute "highlight! VertSplit"      .s:fmt_none  .s:fg_white  .s:bg_white

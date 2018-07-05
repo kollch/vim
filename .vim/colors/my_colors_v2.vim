@@ -79,7 +79,7 @@ highlight clear
 if exists("syntax_on")
   syntax reset
 endif
-let colors_name = "MyColorsV2"
+let colors_name = "my_colors_v2"
 
 "}}}
 
@@ -401,11 +401,11 @@ execute "highlight! ErrorMsg"       .s:fmt_revr  .s:fg_red    .s:bg_lred
 execute "highlight! IncSearch"      .s:fmt_stnd  .s:fg_white  .s:bg_black
 execute "highlight! Search"         .s:fmt_revr  .s:fg_yellow .s:bg_black
 execute "highlight! MoreMsg"        .s:fmt_none  .s:fg_blue   .s:bg_none
-execute "highlight! ModeMsg"        .s:fmt_none  .s:fg_blue   .s:bg_none
+execute "highlight! ModeMsg"        .s:fmt_none  .s:fg_back   .s:bg_none
 execute "highlight! LineNr"         .s:fmt_none  .s:fg_orange .s:bg_black
 execute "highlight! Question"       .s:fmt_bold  .s:fg_cyan   .s:bg_none
 execute "highlight! VertSplit"      .s:fmt_none  .s:fg_white  .s:bg_white
-execute "highlight! Title"          .s:fmt_bold  .s:fg_lred   .s:bg_none
+execute "highlight! Title"          .s:fmt_bold  .s:fg_white  .s:bg_none
 execute "highlight! VisualNOS"      .s:fmt_stnd  .s:fg_none   .s:bg_black .s:fmt_revbb
 execute "highlight! WarningMsg"     .s:fmt_bold  .s:fg_lred   .s:bg_none
 execute "highlight! WildMenu"       .s:fmt_none  .s:fg_brown  .s:bg_black .s:fmt_revbb

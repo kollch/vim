@@ -14,7 +14,38 @@ set smartcase
 set hlsearch
 set incsearch
 
+" Use visual bell instead of beeping when doing something wrong
+set visualbell
+
+" And reset the terminal code for the visual bell. If visualbell is set, and
+" this line is also included, vim will neither flash nor beep. If visualbell
+" is unset, this does nothing.
+set t_vb=
+
+" Display line numbers on the left
+set number
+" Display relative numbering
+set relativenumber
+
+set encoding=utf-8
+
+" When opening a new line and no filetype-specific indenting is enabled, keep
+" the same indent as the line you're currently on. Useful for READMEs, etc.
+set autoindent
+
+" Instead of failing a command because of unsaved changes, instead raise a
+" dialogue asking if you wish to save changed files.
+set confirm
+
 "echo ">^.^<"
+" Highlighting ------------------------------------------------- {{{1
+set background=dark
+colorscheme my_colors_v2
+try
+    " This is what sets vim to use 24-bit colors.
+    set termguicolors
+catch
+endtry
 " Map leaders -------------------------------------------------- {{{1
 let mapleader = "-"
 let maplocalleader = ","
@@ -100,13 +131,23 @@ function! SelectIndent()
 		execute "normal! j"
 	endwhile
 endfunction
-" statusline settings ------------------------------------------ {{{1
-set statusline=%f      " Path to the file
-set statusline+=%=     " Switch to the right side
-set statusline+=%p     " Line percentage
-set statusline+=\ \ %l " Current line
-set statusline+=/      " Separator
-set statusline+=%L     " Total lines
+" Statusline settings ------------------------------------------ {{{1
+" Show partial commands in the last line of the screen
+set showcmd
+
+set shortmess=at
+
+" Always display the status line, even if only one window is displayed
+set laststatus=2
+
+set ttimeoutlen=10
+
+"set statusline=%f      " Path to the file
+"set statusline+=%=     " Switch to the right side
+"set statusline+=%p     " Line percentage
+"set statusline+=\ \ %l " Current line
+"set statusline+=/      " Separator
+"set statusline+=%L     " Total lines
 " Default example settings ------------------------------------- {{{1
 " Set folding to be based on indents
 "set foldmethod=indent
@@ -142,14 +183,10 @@ set statusline+=%L     " Total lines
 " Better command-line completion
 "set wildmenu
 
-" Show partial commands in the last line of the screen
-"set showcmd
-
 " Modelines have historically been a source of security vulnerabilities. As
 " such, it may be a good idea to disable them and use the securemodelines
 " script, <http://www.vim.org/scripts/script.php?script_id=1876>.
 " set nomodeline
-
 
 "____________________________________________________________
 " Usability options {{{2
@@ -162,10 +199,6 @@ set statusline+=%L     " Total lines
 " Allow backspacing over autoindent, line breaks and start of insert action
 "set backspace=indent,eol,start
 
-" When opening a new line and no filetype-specific indenting is enabled, keep
-" the same indent as the line you're currently on. Useful for READMEs, etc.
-"set autoindent
-
 " Stop certain movements from always going to the first character of a line.
 " While this behaviour deviates from that of Vi, it does what most users
 " coming from other editors would expect.
@@ -175,32 +208,12 @@ set statusline+=%L     " Total lines
 " line of a window
 "set ruler
 
-" Always display the status line, even if only one window is displayed
-"set laststatus=2
-
-" Instead of failing a command because of unsaved changes, instead raise a
-" dialogue asking if you wish to save changed files.
-"set confirm
-
-" Use visual bell instead of beeping when doing something wrong
-"set visualbell
-
-" And reset the terminal code for the visual bell. If visualbell is set, and
-" this line is also included, vim will neither flash nor beep. If visualbell
-" is unset, this does nothing.
-"set t_vb=
-
 " Enable use of the mouse for all modes
 "set mouse=a
 
 " Set the command window height to 2 lines, to avoid many cases of having to
 " "press <Enter> to continue"
-set cmdheight=2
-
-" Display line numbers on the left
-set number
-" Display relative numbering
-"set relativenumber
+"set cmdheight=2
 
 " Quickly time out on keycodes, but never time out on mappings
 "set notimeout ttimeout ttimeoutlen=200
@@ -232,8 +245,6 @@ set number
 "autocmd FileType javascript set tabstop=2 softtabstop=2 shiftwidth=2 expandtab textwidth=79 fileformat=unix
 "autocmd FileType html set tabstop=2 softtabstop=2 shiftwidth=2 expandtab textwidth=79 fileformat=unix
 
-"set encoding=utf-8
-
 "____________________________________________________________
 " Mappings {{{2
 "
@@ -249,7 +260,6 @@ set number
 
 
 "____________________________________________________________
-set background=dark
 " The "" is a single character. You enter it by pressing Ctrl+v and then ESC.
 "set t_8f=[38;2;%lu;%lu;%lum
 "set t_8b=[48;2;%lu;%lu;%lum
@@ -264,10 +274,7 @@ set background=dark
 "colorscheme satori_modified
 "colorscheme partial_scheme
 "colorscheme my_colors
-colorscheme my_colors_v2
 "colorscheme acme
-" This is what sets vim to use 24-bit colors.
-set termguicolors
 
 " Sets wrapping to be a soft wrap (doesn't make a new line)
 "set wrap linebreak nolist

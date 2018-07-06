@@ -66,7 +66,7 @@ iabbrev @@ kollch@oregonstate.edu
 nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-nnoremap <leader>gt :tabnew 
+nnoremap <leader>gt :tabnew
 " Surround word in quotes
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
@@ -195,8 +195,8 @@ endif
 " Airline-specific customizations ------------------------------ {{{1
 function! s:AirlineConfigs()
 	let g:airline_powerline_fonts = 1
-	let g:airline_extensions = ['tabline', 'whitespace']
-	let g:airline_skip_empty_sections = 1
+	"let g:airline_extensions = ['tabline', 'whitespace', 'fugitiveline']
+	"let g:airline_skip_empty_sections = 1
 	let g:airline#extensions#tabline#enabled = 1
 	let g:airline#extensions#tabline#buffer_nr_show = 1
 	let g:airline#extensions#tabline#formatter = 'unique_tail_improved'

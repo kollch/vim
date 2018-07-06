@@ -38,6 +38,8 @@ set autoindent
 set confirm
 
 "echo ">^.^<"
+" }}}
+
 " Highlighting ------------------------------------------------- {{{1
 set background=dark
 colorscheme my_colors_v2
@@ -46,20 +48,25 @@ try
 	set termguicolors
 catch
 endtry
+" }}}
+
 " Map leaders -------------------------------------------------- {{{1
 let mapleader = "-"
 let maplocalleader = ","
+" }}}
+
 " Abbreviations ------------------------------------------------ {{{1
 iabbrev fun function
 iabbrev whathe what the
 iabbrev @@ kollch@oregonstate.edu
+" }}}
+
 " Mappings ----------------------------------------------------- {{{1
 " Normal mode mappings ----------------------------------------- {{{2
 nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-nnoremap <leader>gt :edit 
-nnoremap gt :bn<cr>
+nnoremap <leader>gt :tabnew 
 " Surround word in quotes
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
@@ -73,11 +80,19 @@ nnoremap <leader>g :silent execute "grep! -r " . shellescape(expand("<cWORD>")) 
 nnoremap <leader>m :silent make!<cr>:copen<cr>
 nnoremap <leader>color :tabnew ~/.vim/colors/my_colors_v2.vim<cr>
 nnoremap <leader>cc :source $VIMRUNTIME/colors/tools/check_colors.vim<cr>
+nnoremap <leader>n :bn<cr>
+nnoremap <leader>e :edit
+nnoremap <leader>q :bd<cr>
+" }}}
+
 " Insert mode mappings ----------------------------------------- {{{2
 inoremap <c-u> <esc>lviwUea
 inoremap jk <esc>
 " Don't use this. For some reason it breaks the arrow keys in insert mode.
 "inoremap <esc> <nop>
+" }}}
+" }}}
+
 " File Settings ------------------------------------------------ {{{1
 " TeX file settings -------------------------------------------- {{{2
 augroup filetype_tex
@@ -85,6 +100,8 @@ augroup filetype_tex
 	" Turn on spell checker for TeX files
 	autocmd FileType tex :setlocal spell spelllang=en_us
 augroup END
+" }}}
+
 " Python file settings ----------------------------------------- {{{2
 augroup filetype_python
 	autocmd!
@@ -92,35 +109,50 @@ augroup filetype_python
 	autocmd FileType python :nnoremap <buffer> <localleader>c I#<esc>
 	autocmd FileType python :iabbrev <buffer> iff if:<left>
 augroup END
+" }}}
+
 " JavaScript file settings ------------------------------------- {{{2
 augroup filetype_javascript
 	autocmd!
 	autocmd FileType javascript :nnoremap <buffer> <localleader>c I//<esc>
 augroup END
+" }}}
+
 " PHP file settings -------------------------------------------- {{{2
 augroup filetype_php
 	autocmd!
 	autocmd FileType php :nnoremap <buffer> <localleader>c I//<esc>
 augroup END
+" }}}
+
 " asm file settings -------------------------------------------- {{{2
 augroup filetype_asm
 	autocmd!
 	" Set .asm files to default nasm syntax highlighting
 	autocmd BufRead,BufNewFile *.asm :set filetype=nasm
 augroup END
+" }}}
+
 " Markdown file settings --------------------------------------- {{{2
 augroup filetype_markdown
 	autocmd!
 	" Action on the heading of the current text
 	autocmd FileType markdown :onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohl\rkvg_"<cr>
 augroup END
+" }}}
+
 " Vimscript file settings -------------------------------------- {{{2
 augroup filetype_vim
 	autocmd!
 	autocmd FileType vim setlocal foldmethod=marker
 augroup END
+" }}}
+" }}}
+
 " Action on text within current parentheses -------------------- {{{1
 onoremap p i(
+" }}}
+
 " Action on text within current indent ------------------------- {{{1
 "onoremap b :execute "normal! V" | let curr_indent=indent(line(".")) | while indent(line(".")+1) >= curr_indent | execute "normal! j" | endwhile
 " Read omap-info for information on <c-u>
@@ -132,6 +164,8 @@ function! SelectIndent()
 		execute "normal! j"
 	endwhile
 endfunction
+" }}}
+
 " Statusline settings ------------------------------------------ {{{1
 " Show partial commands in the last line of the screen
 set showcmd
@@ -156,10 +190,24 @@ if &laststatus == 2
 	set noshowmode
 endif
 
-" Airline-specific customizations ------------------------------ {{{2
-let g:airline_powerline_fonts = 1
-let g:airline_skip_empty_sections = 1
-let g:airline#extensions#tabline#enabled = 1
+" }}}
+
+" Airline-specific customizations ------------------------------ {{{1
+function! s:AirlineConfigs()
+	let g:airline_powerline_fonts = 1
+	let g:airline_extensions = ['tabline', 'whitespace']
+	let g:airline_skip_empty_sections = 1
+	let g:airline#extensions#tabline#enabled = 1
+	let g:airline#extensions#tabline#buffer_nr_show = 1
+	let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+	let g:airline#extensions#tabline#show_close_button = 0
+	let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+	let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
+endfunction
+
+silent! call s:AirlineConfigs()
+" }}}
+
 " Default example settings ------------------------------------- {{{1
 " Set folding to be based on indents
 "set foldmethod=indent
@@ -200,7 +248,8 @@ let g:airline#extensions#tabline#enabled = 1
 " script, <http://www.vim.org/scripts/script.php?script_id=1876>.
 " set nomodeline
 
-"____________________________________________________________
+"____________________________________________________________ }}}
+
 " Usability options {{{2
 "
 " These are options that users frequently set in their .vimrc. Some of them
@@ -234,7 +283,8 @@ let g:airline#extensions#tabline#enabled = 1
 "set pastetoggle=<F11>
 
 
-"____________________________________________________________
+"____________________________________________________________ }}}
+
 " Indentation options {{{2
 "
 " Indentation settings according to personal preference.
@@ -257,7 +307,8 @@ let g:airline#extensions#tabline#enabled = 1
 "autocmd FileType javascript set tabstop=2 softtabstop=2 shiftwidth=2 expandtab textwidth=79 fileformat=unix
 "autocmd FileType html set tabstop=2 softtabstop=2 shiftwidth=2 expandtab textwidth=79 fileformat=unix
 
-"____________________________________________________________
+"____________________________________________________________ }}}
+
 " Mappings {{{2
 "
 " Useful mappings
@@ -307,3 +358,5 @@ let g:airline#extensions#tabline#enabled = 1
 "Plug 'lervag/vimtex'
 
 "call plug#end()
+" }}}
+" }}}

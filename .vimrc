@@ -55,10 +55,11 @@ iabbrev whathe what the
 iabbrev @@ kollch@oregonstate.edu
 " Mappings ----------------------------------------------------- {{{1
 " Normal mode mappings ----------------------------------------- {{{2
-nnoremap <leader>ev :tabnew $MYVIMRC<cr>
+nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-nnoremap <leader>gt :tabnew
+nnoremap <leader>gt :edit 
+nnoremap gt :bn<cr>
 " Surround word in quotes
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
@@ -158,6 +159,7 @@ endif
 " Airline-specific customizations ------------------------------ {{{2
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
+let g:airline#extensions#tabline#enabled = 1
 " Default example settings ------------------------------------- {{{1
 " Set folding to be based on indents
 "set foldmethod=indent

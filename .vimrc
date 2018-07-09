@@ -42,7 +42,7 @@ set confirm
 
 " Highlighting ------------------------------------------------- {{{1
 set background=dark
-colorscheme my_colors_v2
+colorscheme my_colors
 try
 	" This is what sets vim to use 24-bit colors.
 	set termguicolors

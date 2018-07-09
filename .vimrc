@@ -63,7 +63,20 @@ iabbrev @@ kollch@oregonstate.edu
 
 " Mappings ----------------------------------------------------- {{{1
 " Normal mode mappings ----------------------------------------- {{{2
-nnoremap <leader>ev :edit $MYVIMRC<cr>
+" Move direction keys to home row on dvorak
+" h, j, k, l all set on home row
+" d on querty c
+" n on querty v
+" t on querty l
+nnoremap d h
+nnoremap h j
+nnoremap t k
+nnoremap n l
+nnoremap j d
+nnoremap k n
+nnoremap l t
+
+nnoremap <leader>ev :tabnew $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 nnoremap <leader>gt :tabnew
@@ -193,16 +206,29 @@ endif
 " }}}
 
 " Airline-specific customizations ------------------------------ {{{1
+function! s:ToggleShowBuffers()
+	let l:current = g:airline#extensions#tabline#show_buffers
+	let g:airline#extensions#tabline#show_buffers = !l:current
+	redraw!
+endfunction
+
 function! s:AirlineConfigs()
 	let g:airline_powerline_fonts = 1
 	"let g:airline_extensions = ['tabline', 'whitespace', 'fugitiveline']
 	"let g:airline_skip_empty_sections = 1
 	let g:airline#extensions#tabline#enabled = 1
-	let g:airline#extensions#tabline#buffer_nr_show = 1
+	"let g:airline#extensions#tabline#buffer_nr_show = 1
+	let g:airline#extensions#tabline#show_buffers = 0
+	let g:airline#extensions#tabline#show_tab_nr = 0
+	let g:airline#extensions#tabline#show_splits = 1
 	let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 	let g:airline#extensions#tabline#show_close_button = 0
 	let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 	let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
+
+	autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
+	" Not sure why, but for some reason '<SID>' is necessary instead of 's:'.
+	nnoremap <leader>b :call <SID>ToggleShowBuffers()<cr>
 endfunction
 
 silent! call s:AirlineConfigs()

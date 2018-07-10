@@ -197,12 +197,6 @@ set ttimeoutlen=10
 "set statusline+=/      " Separator
 "set statusline+=%L     " Total lines
 
-" Hide the mode indicator in the command area if it's already displayed on the
-" status line
-if &laststatus == 2
-	set noshowmode
-endif
-
 " }}}
 
 " Airline-specific customizations ------------------------------ {{{1
@@ -213,6 +207,8 @@ function! s:ToggleShowBuffers()
 endfunction
 
 function! s:AirlineConfigs()
+	" Hide the mode indicator
+	set noshowmode
 	let g:airline_powerline_fonts = 1
 	"let g:airline_extensions = ['tabline', 'whitespace', 'fugitiveline']
 	"let g:airline_skip_empty_sections = 1

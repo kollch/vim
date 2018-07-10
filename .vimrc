@@ -68,13 +68,13 @@ iabbrev @@ kollch@oregonstate.edu
 " d on querty c
 " n on querty v
 " t on querty l
-nnoremap d h
-nnoremap h j
-nnoremap t k
-nnoremap n l
-nnoremap j d
-nnoremap k n
-nnoremap l t
+"nnoremap d h
+"nnoremap h j
+"nnoremap t k
+"nnoremap n l
+"nnoremap j d
+"nnoremap k n
+"nnoremap l t
 
 nnoremap <leader>ev :tabnew $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>

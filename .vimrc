@@ -48,6 +48,15 @@ try
 	set termguicolors
 catch
 endtry
+
+function! ToggleHighlighting()
+	if &background == "dark"
+		set background=light
+	else
+		set background=dark
+	endif
+endfunction
+nnoremap <c-x> :call ToggleHighlighting()<cr>
 " }}}
 
 " Map leaders -------------------------------------------------- {{{1
@@ -223,6 +232,8 @@ function! s:AirlineConfigs()
 	let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
 
 	autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
+	" Hack to refresh font for tabline: make a new tab then close it immediately
+	nnoremap <c-x> :call ToggleHighlighting()<cr>:call airline#themes#dark#refresh()<cr>:tabnew<cr>:q<cr>
 	" Not sure why, but for some reason '<SID>' is necessary instead of 's:'.
 	nnoremap <leader>b :call <SID>ToggleShowBuffers()<cr>
 endfunction

@@ -146,38 +146,25 @@ let s:term_back = s:term_black
 " ---------------------------------------------------------------------
 if &background == "light"
     " GUI
-    let s:gui_temp03 = s:gui_grey
-    let s:gui_temp02 = s:gui_black
-    let s:gui_temp01 = s:gui_lgreen
-    let s:gui_temp00 = s:gui_yellow
-    let s:gui_grey   = s:gui_white
-    let s:gui_black  = s:gui_brown
-    let s:gui_lgreen = s:gui_violet
-    let s:gui_yellow = s:gui_navy
-    let s:gui_navy   = s:gui_temp00
-    let s:gui_violet = s:gui_temp01
-    let s:gui_brown  = s:gui_temp02
-    let s:gui_white  = s:gui_temp03
-    if (s:gui_back != "NONE")
-        let s:gui_back = s:gui_grey
-    endif
-
-    " terminal
-    let s:term_temp03 =   s:term_grey
-    let s:term_temp02 =   s:term_black
-    let s:term_temp01 =   s:term_lgreen
-    let s:term_temp00 =   s:term_yellow
-    let s:term_grey   =   s:term_white
-    let s:term_black  =   s:term_brown
-    let s:term_lgreen =   s:term_violet
-    let s:term_yellow =   s:term_navy
-    let s:term_navy   =   s:term_temp00
-    let s:term_violet =   s:term_temp01
-    let s:term_brown  =   s:term_temp02
-    let s:term_white  =   s:term_temp03
-    if (s:term_back != "NONE")
-        let s:term_back = s:term_black
-    endif
+    " Set gui and terminal at the same time.
+    let s:gui_black   = "#ffffff"
+    let s:gui_red     = "#ffcccc"
+    let s:gui_green   = "#24e54b"
+    let s:gui_orange  = "#ff7700"
+    let s:gui_blue    = "#0070e0"
+    let s:gui_magenta = "#ff00ff"
+    let s:gui_cyan    = "#12429b"
+    let s:gui_brown   = "#815e32"
+    let s:gui_grey    = "#7f7f7f"
+    let s:gui_lred    = "#cc0000"
+    let s:gui_lgreen  = "#0f5c1e"
+    let s:gui_yellow  = "#b4ac18"
+    let s:gui_navy    = "#cde2f9"
+    let s:gui_pink    = "#3a065b"
+    let s:gui_violet  = "#2319ae"
+    let s:gui_white   = "#1a1a1a"
+    let s:gui_back  = s:gui_black
+    let s:term_back = s:term_black
 endif
 "}}}
 

@@ -5,7 +5,7 @@ if exists("syntax_on")
 endif
 
 set t_ut=
-let colors_name = "my_colors"
+let colors_name = "my_old_colors"
 
 highlight Normal guifg=#e5e5e5 guibg=#000000 guisp=#000000 gui=NONE
 
@@ -22,7 +22,7 @@ set background=dark
 "highlight CTagsClass -- no settings --
 "highlight NonText -- no settings --
 "highlight DiffText -- no settings --
-"highlight ErrorMsg -- no settings --
+highlight ErrorMsg guifg=#330000 guibg=#ff3232 guisp=#ff3232 gui=NONE
 "highlight Ignore -- no settings --
 highlight Todo guifg=#ff0000 guibg=#330000 guisp=#330000 gui=NONE
 "highlight StatusLine -- no settings --

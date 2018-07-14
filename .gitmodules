@@ -1,6 +1,0 @@
-[submodule ".vim/pack/dist/start/vim-airline"]
-	path = .vim/pack/dist/start/vim-airline
-	url = https://github.com/kollch/vim-airline
-[submodule ".vim/pack/dist/start/vim-fugitive"]
-	path = .vim/pack/dist/start/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive

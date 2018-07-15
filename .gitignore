@@ -2,3 +2,4 @@ example_filetypes
 .vim/.netrwhist
 .vim/.VimballRecord
 .vim/pack
+.vim/plugin

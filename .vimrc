@@ -112,6 +112,8 @@ inoremap <c-u> <esc>lviwUea
 inoremap jk <esc>
 " Don't use this. For some reason it breaks the arrow keys in insert mode.
 "inoremap <esc> <nop>
+" Use to create a basic for loop
+"inoremap for ( for (; ;maa )mba {mcaxa}kkf(a
 " }}}
 " }}}
 

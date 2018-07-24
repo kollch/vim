@@ -37,6 +37,9 @@ set autoindent
 " dialogue asking if you wish to save changed files.
 set confirm
 
+" Set indentation options
+autocmd FileType * set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+
 "echo ">^.^<"
 " }}}
 
@@ -131,7 +134,8 @@ augroup filetype_python
 	autocmd!
 	" Map a shortcut to commenting out a line in python
 	autocmd FileType python :nnoremap <buffer> <localleader>c I#<esc>
-	autocmd FileType python :iabbrev <buffer> iff if:<left>
+	"autocmd FileType python :iabbrev <buffer> iff if:<left>
+	autocmd FileType python set tabstop=4 softtabstop=4 shiftwidth=4 expandtab textwidth=79 fileformat=unix
 augroup END
 " }}}
 
@@ -139,6 +143,23 @@ augroup END
 augroup filetype_javascript
 	autocmd!
 	autocmd FileType javascript :nnoremap <buffer> <localleader>c I//<esc>
+	autocmd FileType javascript set tabstop=2 softtabstop=2 shiftwidth=2 expandtab textwidth=79 fileformat=unix
+augroup END
+" }}}
+
+" CSS file settings -------------------------------------------- {{{2
+augroup filetype_css
+	autocmd!
+	autocmd FileType css :nnoremap <buffer> <localleader>c I/*<esc>$a*/<esc>
+	autocmd FileType css set tabstop=2 softtabstop=2 shiftwidth=2 expandtab textwidth=79 fileformat=unix
+augroup END
+" }}}
+
+" HTML file settings ------------------------------------------- {{{2
+augroup filetype_html
+	autocmd!
+	autocmd FileType html :nnoremap <buffer> <localleader>c I<!--<esc>$a--><esc>
+	autocmd FileType html set tabstop=2 softtabstop=2 shiftwidth=2 expandtab textwidth=79 fileformat=unix
 augroup END
 " }}}
 
@@ -146,6 +167,7 @@ augroup END
 augroup filetype_php
 	autocmd!
 	autocmd FileType php :nnoremap <buffer> <localleader>c I//<esc>
+	autocmd FileType php set tabstop=4 softtabstop=4 shiftwidth=4 expandtab textwidth=79 fileformat=unix
 augroup END
 " }}}
 
@@ -302,12 +324,6 @@ set ttimeoutlen=10
 "set shiftwidth=8
 "set softtabstop=8
 "set tabstop=8
-
-"autocmd FileType * set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
-"autocmd FileType python set tabstop=4 softtabstop=4 shiftwidth=4 expandtab textwidth=79 fileformat=unix
-"autocmd FileType php set tabstop=4 softtabstop=4 shiftwidth=4 expandtab textwidth=79 fileformat=unix
-"autocmd FileType javascript set tabstop=2 softtabstop=2 shiftwidth=2 expandtab textwidth=79 fileformat=unix
-"autocmd FileType html set tabstop=2 softtabstop=2 shiftwidth=2 expandtab textwidth=79 fileformat=unix
 
 "____________________________________________________________ }}}
 

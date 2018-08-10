@@ -98,6 +98,7 @@ nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 nnoremap - <nop>
 nnoremap <silent> <leader>w :match Error /\v\s+$/<cr>
 nnoremap <silent> <leader>W :match none<cr>
+nnoremap <leader>dw :%s/\s\+$//e<cr>
 nnoremap / /\v
 nnoremap ? ?\v
 nnoremap <leader>hl :nohlsearch<cr>

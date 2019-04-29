@@ -420,7 +420,7 @@ execute "highlight! TabLineSel"     .s:fmt_none  .s:fg_grey   .s:bg_none  .s:sp_
 execute "highlight! CursorColumn"   .s:fmt_none  .s:fg_none   .s:bg_none
 execute "highlight! CursorLine"     .s:fmt_uopt  .s:fg_none   .s:bg_none  .s:sp_violet
 execute "highlight! CursorLineNr"   .s:fmt_uopt  .s:fg_none   .s:bg_none  .s:sp_violet
-execute "highlight! ColorColumn"    .s:fmt_none  .s:fg_none   .s:bg_none
+execute "highlight! ColorColumn"    .s:fmt_none  .s:fg_none   .s:bg_lred
 execute "highlight! Cursor"         .s:fmt_none  .s:fg_grey   .s:bg_navy
 highlight! link lCursor Cursor
 execute "highlight! MatchParen"     .s:fmt_bold  .s:fg_brown  .s:bg_grey
@@ -529,6 +529,20 @@ execute "highlight! htmlTagName"        .s:fmt_none .s:fg_blue   .s:bg_none
 execute "highlight! htmlSpecialTagName" .s:fmt_ital .s:fg_blue   .s:bg_none
 execute "highlight! htmlArg"            .s:fmt_none .s:fg_green  .s:bg_none
 execute "highlight! javaScript"         .s:fmt_none .s:fg_orange .s:bg_none
+"}}}
+
+" javascript highlighting "{{{
+" ---------------------------------------------------------------------
+highlight! link javascriptFunction Type
+highlight! link jsDot Operator
+highlight! link jsBrackets cBrackets
+"execute "highlight! htmlTag"            .s:fmt_none .s:fg_lgreen .s:bg_none
+"execute "highlight! htmlEndTag"         .s:fmt_none .s:fg_lgreen .s:bg_none
+"execute "highlight! htmlTagN"           .s:fmt_bold .s:fg_violet .s:bg_none
+"execute "highlight! htmlTagName"        .s:fmt_none .s:fg_blue   .s:bg_none
+"execute "highlight! htmlSpecialTagName" .s:fmt_ital .s:fg_blue   .s:bg_none
+"execute "highlight! htmlArg"            .s:fmt_none .s:fg_green  .s:bg_none
+"execute "highlight! javaScript"         .s:fmt_none .s:fg_orange .s:bg_none
 "}}}
 
 " perl highlighting "{{{

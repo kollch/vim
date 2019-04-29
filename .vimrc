@@ -45,6 +45,8 @@ autocmd FileType * set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 
 " Highlighting ------------------------------------------------- {{{1
 set background=dark
+" Hide colored column
+set colorcolumn=
 colorscheme my_colors
 try
 	" This is what sets vim to use 24-bit colors.
@@ -147,6 +149,14 @@ augroup filetype_javascript
 augroup END
 " }}}
 
+" Haskell file settings ------------------------------------- {{{2
+augroup filetype_haskell
+	autocmd!
+	autocmd FileType haskell :nnoremap <buffer> <localleader>c I--<esc>
+	autocmd FileType haskell set tabstop=2 softtabstop=2 shiftwidth=2 expandtab textwidth=79 fileformat=unix
+augroup END
+" }}}
+
 " CSS file settings -------------------------------------------- {{{2
 augroup filetype_css
 	autocmd!
@@ -193,6 +203,15 @@ augroup filetype_vim
 	autocmd FileType vim setlocal foldmethod=marker
 augroup END
 " }}}
+" }}}
+
+" Linting ------------------------------------------------------ {{{1
+augroup Linting
+	autocmd!
+	autocmd FileType python setlocal makeprg=pylint\ --output-format=parseable
+	"autocmd BufWritePost *.py silent make! <afile> | silent redraw!
+	autocmd QuickFixCmdPost [^l]* cwindow
+augroup END
 " }}}
 
 " Action on text within current parentheses -------------------- {{{1

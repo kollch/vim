@@ -62,6 +62,8 @@ function! ToggleHighlighting()
 	endif
 endfunction
 nnoremap <c-x> :call ToggleHighlighting()<cr>
+
+autocmd BufNewFile,BufRead *.kl set syntax=koll
 " }}}
 
 " Map leaders -------------------------------------------------- {{{1
@@ -124,6 +126,7 @@ inoremap jk <esc>
 " }}}
 
 " File Settings ------------------------------------------------ {{{1
+autocmd BufNewFile,BufRead *.kl set filetype=koll
 " TeX file settings -------------------------------------------- {{{2
 augroup filetype_tex
 	autocmd!
@@ -139,6 +142,16 @@ augroup filetype_python
 	autocmd FileType python :nnoremap <buffer> <localleader>c I#<esc>
 	"autocmd FileType python :iabbrev <buffer> iff if:<left>
 	autocmd FileType python set tabstop=4 softtabstop=4 shiftwidth=4 expandtab textwidth=79 fileformat=unix
+augroup END
+" }}}
+
+" Rust file settings ----------------------------------------- {{{2
+augroup filetype_rust
+	autocmd!
+	" Map a shortcut to commenting out a line in rust
+	autocmd FileType rust :nnoremap <buffer> <localleader>c I//<esc>
+	"autocmd FileType rust :iabbrev <buffer> iff if:<left>
+	autocmd FileType rust set tabstop=4 softtabstop=4 shiftwidth=4 expandtab textwidth=79 fileformat=unix
 augroup END
 " }}}
 
@@ -202,6 +215,16 @@ augroup END
 augroup filetype_vim
 	autocmd!
 	autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
+
+" Koll file settings ------------------------------------------- {{{2
+augroup filetype_koll
+	autocmd!
+	" Map a shortcut to commenting out a line in koll
+	autocmd FileType koll :nnoremap <buffer> <localleader>c I#<esc>
+	"autocmd FileType koll :iabbrev <buffer> iff if:<left>
+	autocmd FileType koll set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab textwidth=79 fileformat=unix
 augroup END
 " }}}
 " }}}
